@@ -1,0 +1,37 @@
+<div class="container">
+    <h2>Select Week</h2>
+    <select id="weekDropdown" onchange="filterWeek()">
+        <option value="14">Week 14</option>
+        <option value="13">Week 13</option>
+        <option value="12">Week 12</option>
+    </select>
+    <div id="week14" class="week">
+        <h3>Week 14 Touchdowns</h3>
+        <table>
+            <!-- Same table as before -->
+        </table>
+    </div>
+    <div id="week13" class="week" style="display: none;">
+        <h3>Week 13 Touchdowns</h3>
+        <table>
+            <!-- Add Week 13 data here -->
+        </table>
+    </div>
+    <div id="week12" class="week" style="display: none;">
+        <h3>Week 12 Touchdowns</h3>
+        <table>
+            <!-- Add Week 12 data here -->
+        </table>
+    </div>
+</div>
+
+<script>
+    function filterWeek() {
+        const selectedWeek = document.getElementById("weekDropdown").value;
+        const weeks = document.querySelectorAll(".week");
+        weeks.forEach(week => {
+            week.style.display = "none";
+        });
+        document.getElementById(`week${selectedWeek}`).style.display = "block";
+    }
+</script>
